@@ -10,7 +10,7 @@ except ValueError:
     print("Parameter Error")
     exit()
 
-# QCD 
+#  Quick calculation deduction
 qcd = 0
 rate = 0
 in_put_int = in_put_int - 3500
@@ -24,7 +24,7 @@ elif in_put_int >= 35000:
     rate = 0.3
     qcd = 2755
 elif in_put_int >= 9000:
-    rate = 0.25 
+    rate = 0.25
     qcd = 1005
 elif in_put_int >= 4500:
     rate = 0.2
@@ -42,8 +42,3 @@ if result <= 0:
     print("0.00")
 else:
     print(format(result, ".2f"))
-
-
-
-
-
