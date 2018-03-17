@@ -8,8 +8,9 @@ def char_count(str):
 def better_char_count(str):
     char_dict = {}
     for char in str:
-#        char_dict[char] += (0 if char_dict.get(char) is None else 1)
-        char_dict[char] = char_dict.get(char,1) + (0 if char_dict.get(char) is None else 1)
+#        char_dict[char] = char_dict.get(char,1) + (0 if char_dict.get(char) is None else 1)
+# By Yerannnnnn
+        char_dict[char] = char_dict.get(char, 0) + 1
     print(char_dict)
 
 
