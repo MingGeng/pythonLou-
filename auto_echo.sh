@@ -8,8 +8,8 @@ do
     i=$(($i+1))
     echo $i
     echo $i > echo.echo
-    sleep 500ms
-    ls
+    sleep 0.5s
+    ls ../
 done
 
 
