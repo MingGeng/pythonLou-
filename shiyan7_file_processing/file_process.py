@@ -10,10 +10,23 @@ filename = '/home/shiyanlou/test.txt'
 #    print(file.read())
 
 
+#file = open(filename)
+#print(file.readline())
+#print(file.readline())
+#file.close()
+
 file = open(filename)
-print(file.readline())
-print(file.readline())
+#print(file.readlines())
+for line in file:
+    print(line, end = '')
+
 file.close()
-file = open(filename)
-print(file.readlines())
-file.close()
+
+
+
+
+
+
+
+
+
