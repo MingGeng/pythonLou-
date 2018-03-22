@@ -64,7 +64,7 @@ class Args(object):
 
 
 def main():
-    print(sys.argv)
+    print(sys.argv[5])
 
 if __name__ == '__main__':
     main()
