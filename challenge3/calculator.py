@@ -73,12 +73,29 @@ class Args(object):
             print('''input like: ./calculator.py -c / home/shiyanlou/test.cfg -d / home/shiyanlou/user.csv -o / tmp/gongzi.csv''')
             exit()
         
-    def _get_config(self):
+    def _get_config_path(self):
         return self.args[1]
 
 def main():
     args = Args()
-    print(args._get_config())
+    (args._get_config_path())
+
+class Config(object):
+    def __init__(self):
+        self.config = self._read_config()
+
+    def _read_config(self):
+        config = {}
+        
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     main()
 
