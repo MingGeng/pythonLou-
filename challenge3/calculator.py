@@ -60,10 +60,14 @@ class Args(object):
             raise Exception('-d')
         elif os.path.isfile(sys.argv[4]) == False:
             raise Exception('data is not right')
-        elif os.path.exists(sys.argv[5][0:sys.len(sys.argv[5])-])
+#        elif os.path.exists(sys.argv[5][0:sys.len(sys.argv[5])-])
 
 
+def main():
+    print(sys.argv)
 
+if __name__ == '__main__':
+    main()
 
 
 
