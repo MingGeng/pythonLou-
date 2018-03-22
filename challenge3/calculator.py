@@ -52,20 +52,33 @@ class Args(object):
     def __init__(self):
         self.args = self._read_args()
     def _read_args(self):
-        if sys.argv[1] != '-c':
-            raise Exception('-c')
-        elif os.path.isfile(sys.argv[2]) == False:
-            raise Exception(sys.argv[2],'config is not right')
-        elif sys.argv[3] != '-d':
-            raise Exception('-d')
-        elif os.path.isfile(sys.argv[4]) == False:
-            raise Exception('data is not right')
-#        elif os.path.exists(sys.argv[5][0:sys.len(sys.argv[5])-])
-
+        try:
+            if sys.argv[1] != '-c':
+                raise Exception('-c')
+            elif os.path.isfile(sys.argv[2]) == False:
+                raise Exception(sys.argv[2], 'File is not exists!')
+            elif sys.argv[3] != '-d':
+                raise Exception('-d')
+            elif os.path.isfile(sys.argv[4]) == False:
+                raise Exception('File is not exists')
+            elif sys.argv[5] != '-o':
+                raise Exception('-o')
+            elif os.path.exists(sys.argv[6][0:len(sys.argv[6]) - sys.argv[6][::-1].index('/')]) == False:
+                raise Exception(sys.argv[6][0:len(sys.argv[6]) - sys.argv[6][::-1].index('/')],'Path is not exists!')
+            elif len(sys.argv) > 7:
+                raise Exception('Too many params!')
+            else:
+                return sys.argv[1:]
+        except IndexError:
+            print('''input like: ./calculator.py -c / home/shiyanlou/test.cfg -d / home/shiyanlou/user.csv -o / tmp/gongzi.csv''')
+            exit()
+        
+    def _get_config(self):
+        return self.args[1]
 
 def main():
-    print(sys.argv[5])
-
+    args = Args()
+    print(args._get_config())
 if __name__ == '__main__':
     main()
 
