@@ -52,6 +52,7 @@ class Args(object):
     def __init__(self):
         self.args = self._read_args()
     def _read_args(self):
+        #严格要求按顺序输入参数
         try:
             if sys.argv[1] != '-c':
                 raise Exception('-c')
@@ -70,15 +71,11 @@ class Args(object):
             else:
                 return sys.argv[1:]
         except IndexError:
-            print('''input like: ./calculator.py -c / home/shiyanlou/test.cfg -d / home/shiyanlou/user.csv -o / tmp/gongzi.csv''')
+            print('input like: ./calculator.py -c / home/shiyanlou/test.cfg -d / home/shiyanlou/user.csv -o / tmp/gongzi.csv')
             exit()
-        
-    def _get_config_path(self):
-        return self.args[1]
+    def get_config_path(self):
+        return self.args[self.args.index('-c')+1]
 
-def main():
-    args = Args()
-    (args._get_config_path())
 
 class Config(object):
     def __init__(self):
@@ -86,7 +83,15 @@ class Config(object):
 
     def _read_config(self):
         config = {}
-        
+        arg = Args()
+        with open(arg.get_config_path()) as file:
+           for line in file.readlines():
+               try:
+                   config[line.split('=')[0].strip(' ')] = float(line.split('=')[1].strip(' ').strip('\n'))
+               except:
+                   print('Config format is incurrent!')
+                   raise Exception('Config format is incurrent!')
+        return config
 
 
 
@@ -95,6 +100,9 @@ class Config(object):
 
 
 
+def main():
+    config = Config()
+    print(config.config['JiShuL'])
 
 if __name__ == '__main__':
     main()
