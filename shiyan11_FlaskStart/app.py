@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask
-from flask import render_template
-
+from flask import Flask, render_template, redirect, url_for, request, make_response
 app = Flask(__name__)
 app.config.update({
     'SECTET_KEY': 'a random string'
@@ -16,14 +14,34 @@ app.config.update({
 
 @app.route('/')
 def index():
-    return 'Index'
+#    return 'Index'
+#    return redirect(url_for('user_index', username='default'))    
+    username = request.cookies.get('username')
+    return '<h1>Hello {} !</h1>'.format(username)
+
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
     return 'Post {}'.format(post_id)
+
 @app.route('/user/<username>')
 def user_index(username):
 #    return 'Hello {}!'.format(username)
-    return render_template('user_index.html', username=username) 
+    print(request.headers.get('User-Agent'))
+#    page = request.args.get('page')
+#    per_page = request.args.get('per_page')
+#    form1 = request.form.get('form1')
+#    method = request.method.get('')
+    resp = make_response(render_template('user_index.html', username=username))
+    resp.set_cookie('username', username)
+#    return render_template('user_index.html', username=username) 
+    return resp
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+
+
 
 
 if __name__ == '__main__':
