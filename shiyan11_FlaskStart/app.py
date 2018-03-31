@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, render_template, redirect, url_for, request, make_response
+from flask import Flask, render_template, redirect, url_for, request, make_response, abort
 app = Flask(__name__)
 app.config.update({
     'SECTET_KEY': 'a random string'
@@ -25,6 +25,8 @@ def show_post(post_id):
 
 @app.route('/user/<username>')
 def user_index(username):
+    if username == 'invlid':
+        abort(404)        
 #    return 'Hello {}!'.format(username)
     print(request.headers.get('User-Agent'))
 #    page = request.args.get('page')
