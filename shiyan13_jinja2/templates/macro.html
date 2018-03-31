@@ -1,0 +1,9 @@
+{% macro course_item(course, type='bootstrap4') %}
+<div>
+    <p>type:{{type}}</p>
+    <p>name: {{course.name}}</p>
+    <p>user count: {{course.user_count}}</p>
+    <p>teacher: {{course.teacher}}</p>
+    <p>is_privarte: {{course.is_private}}</p>
+</div>
+{% endmacro %}
