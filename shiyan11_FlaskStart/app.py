@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 app.config.update({
@@ -21,8 +22,14 @@ def show_post(post_id):
     return 'Post {}'.format(post_id)
 @app.route('/user/<username>')
 def user_index(username):
-    return 'Hello {}!'.format(username)
+#    return 'Hello {}!'.format(username)
+    return render_template('user_index.html', username=username) 
+
 
 if __name__ == '__main__':
-    print(app.config['SECRET_KEY'])
     app.run()
+    print(app.config['SECRET_KEY'])
+
+
+
+
