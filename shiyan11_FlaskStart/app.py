@@ -17,7 +17,10 @@ def index():
 #    return 'Index'
 #    return redirect(url_for('user_index', username='default'))    
     username = request.cookies.get('username')
-    return '<h1>Hello {} !</h1>'.format(username)
+    if username == 'invalid':
+        abort(404)
+    else:
+        return '<h1>Hello {} !</h1>'.format(username)
 
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
@@ -25,8 +28,6 @@ def show_post(post_id):
 
 @app.route('/user/<username>')
 def user_index(username):
-    if username == 'invlid':
-        abort(404)        
 #    return 'Hello {}!'.format(username)
     print(request.headers.get('User-Agent'))
 #    page = request.args.get('page')
@@ -36,6 +37,8 @@ def user_index(username):
     resp = make_response(render_template('user_index.html', username=username))
     resp.set_cookie('username', username)
 #    return render_template('user_index.html', username=username) 
+    if username == 'invalid':
+        abort(404)
     return resp
 
 @app.errorhandler(404)
