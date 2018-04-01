@@ -8,7 +8,7 @@ do
     i=$(($i+1))
     echo $i
     echo $i >> echo.echo
-    sleep 10s
+    sleep 5s
     ls ../
 done
 
