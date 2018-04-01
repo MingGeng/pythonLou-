@@ -9,7 +9,7 @@
     <!-- ref:https://blog.csdn.net/kikaylee/article/details/53540352 -->
     <!-- {{ url_for('static', filename='css/style.css') }} -->
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="{{url_for('.static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 </head>
 
 <body>
@@ -19,7 +19,9 @@
     {% endblock %}
 
     {% block content %}
-        {{ course_item(course) }}
+        <!-- {{ course_item(course) }} -->
+        <p>teacher email:{{ course.teacher.email | hidden_email}}</p>
+        <p> course tag length:{{course.tags|length}}</p>
     {% endblock %}
 
     <legend>form example</legend>
