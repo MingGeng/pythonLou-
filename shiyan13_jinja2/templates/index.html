@@ -41,7 +41,6 @@
 
 
 
-    {% from 'macro.html' import course_item %}
     <h1>Helo Jinja</h1>
     <p>name: {{ course.name }}</p>
     <p>user count: {{ course.user_count }}</p>
@@ -57,12 +56,7 @@
     <p>course {{course.name}} is normal course</p>
     {% endif %} {% for tag in course.tags %}
     <span>{{ tag }}</span>
-    {% endfor %}
-
-
-
-
-
+    {% endfor %} {% from 'macro.html' import course_item %}
     <div>{{ course_item(course) }}</div>
     <p>{{ '=' * 20 }}</p>
     <div>{{ course_item(course, type='louplus') }}</div>
