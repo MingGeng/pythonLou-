@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 from flask import Flask, render_template
 
@@ -22,6 +22,16 @@ def index():
         'tags': ['python', 'big data', 'Linux']
     }
     return render_template('index.html', course=course)
+
+
+
+
+def main():
+    app = Flask(__name__)
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+if __name__ == '__main__':
+    main()
 
 
 
