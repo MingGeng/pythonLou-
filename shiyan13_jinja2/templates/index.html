@@ -1,43 +1,58 @@
-<legend>form example</legend>
-<form action="" method="POST" id="form1">
-    <input type="text" autofocus="autofocus" required name="auto" placeholder="Requird
-">
-    <input type="email" name="mail" id="mail" placeholder="input email address">
-    <input type="url" name="url" id="url" placeholder="input url address">
-    <input type="password" name="password" id="password" placeholder="input password">
-    <br>
-    <br>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+
+        <legend>form example</legend>
+        <form action="" method="POST" id="form1">
+            <input type="text" autofocus="autofocus" required name="auto"
+                placeholder="Requird">
+            <input type="email" name="mail" id="mail" placeholder="input email
+                address">
+            <input type="url" name="url" id="url" placeholder="input url
+                address">
+            <input type="password" name="password" id="password"
+                placeholder="input password">
+            <br>
+            <br>
+            <input type="submit" value="submit">
+        </form>
+        <h1>ShiYanLou</h1>
+
+
+        {% from 'macro.html' import course_item %}
+        <h1>Helo Jinja</h1>
+        <p>name: {{ course.name }}</p>
+        <p>user count: {{ course.user_count }}</p>
+        <p>teacher: {{ course.teacher }}</p>
+        <p>is_private: {{ course.is_private }}</p>
+        <p>not exist: {{ course.not_exist }}</p>
+
+        {% if course.is_private %}
+        <p> course {{course.name}} is private</p>
+        {% elif course.is_member_course %}
+        <p>course {{ course.name }} is member course</p>
+        {% else %}
+        <p>course {{course.name}} is normal course</p>
+        {% endif %}
+
+        {% for tag in course.tags %}
+        <span>{{ tag }}</span>
+        {% endfor %}
 
 
 
-{% from 'macro.html' import course_item %}
-<h1>Helo Jinja</h1>
-<p>name: {{ course.name }}</p>
-<p>user count: {{ course.user_count }}</p>
-<p>teacher: {{ course.teacher }}</p>
-<p>is_private: {{ course.is_private }}</p>
-<p>not exist: {{ course.not_exist }}</p>
-
-{% if course.is_private %}
-    <p> course {{course.name}} is private</p>
-{% elif course.is_member_course %}
-    <p>course {{ course.name }} is member course</p>
-{% else %}
-    <p>course {{course.name}}  is normal course</p>
-{% endif %}
-
-{% for tag in course.tags %}
-    <span>{{ tag }}</span>
-{% endfor %}
 
 
-
-
-
-<div>{{ course_item(course) }}</div>
-<p>{{ '=' * 20 }}</p>
-<div>{{ course_item(course, type='louplus') }}</div>
+        <div>{{ course_item(course) }}</div>
+        <p>{{ '=' * 20 }}</p>
+        <div>{{ course_item(course, type='louplus') }}</div>
 
 
 
@@ -47,3 +62,6 @@
 
 
 
+    </body>
+
+</html>
