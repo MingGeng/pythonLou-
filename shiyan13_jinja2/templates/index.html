@@ -13,7 +13,14 @@
 </head>
 
 <body>
+    {% extends "base.html" %} 
+    {% block header %}
+    <h1> header </h1>
+    {% endblock %}
 
+    {% block content %}
+        {{ course_item(course) }}
+    {% endblock %}
 
     <legend>form example</legend>
     <form action="" method="POST" id="form1">
@@ -56,17 +63,16 @@
     <p>course {{course.name}} is normal course</p>
     {% endif %} {% for tag in course.tags %}
     <span>{{ tag }}</span>
-    {% endfor %} {% from 'macro.html' import course_item %}
+    {% endfor %}
+
+
+
+
+
+     {% from 'macro.html' import course_item %}
     <div>{{ course_item(course) }}</div>
     <p>{{ '=' * 20 }}</p>
     <div>{{ course_item(course, type='louplus') }}</div>
-
-
-
-
-
-
-
 
 
 </body>
