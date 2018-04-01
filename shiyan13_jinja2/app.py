@@ -26,12 +26,17 @@ def index():
 
 
 
-def main():
-    app = Flask(__name__)
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
 
-if __name__ == '__main__':
-    main()
+
+
+
+# def main():
+#     app = Flask(__name__)
+#     app.config['TEMPLATES_AUTO_RELOAD'] = True
+#     print('inside main()')
+
+# if __name__ == '__main__':
+#     main()
 
 
 
