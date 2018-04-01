@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 from flask import Flask, render_template
-
+app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
