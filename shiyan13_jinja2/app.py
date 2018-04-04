@@ -10,15 +10,12 @@ def hidden_email(email):
     parts[0] = '****'
     return '@'.join(parts)
 
-
 app.add_template_filter(hidden_email)
-
-
 @app.route('/')
 def index():
     teacher = {
         'name': 'Aiden',
-        'email': 'luojin@simplecloud.cn'
+        'email': 'luojin@simplecloud.cnaaaa'
     }
     course = {
         'name': 'Python Basic',
