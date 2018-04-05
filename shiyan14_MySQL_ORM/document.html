@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Lei Shi">
+        <meta http-equiv="Cache-Control" content="o-transform">
+        <meta http-equiv="Cache-Control" content="no-siteapp">
+        <meta name="csrf-token" content="ImYzZjVmYjM5MzU1MjcxYzI2ZWNiOGZlYzMxOTUyNzBhYmZiMDBkZGIi.DafXxg.4DvTkFRvwUB63F8dX2hKv2pcvWk">
+        
+            
+                <title>实验楼 - 在线做实验，高效学编程</title>
+            
+        
+
+        
+        <meta content="实验楼是国内领先的IT在线编程及在线实训学习平台，专业导师提供精选的实践项目，创新的技术使得学习者无需配置繁琐的本地环境，随时在线流畅使用。以就业为导向，提供编程、运维、测试、云计算、大数据、数据库等全面的IT技术动手实践环境，提供Linux、Python、Java、C语言、Node.js、Hadoop、PHP、Docker、Git、R、SQL、MongoDB、Redis、Swift、Spark等千门热门课程。" name="description">
+        <meta content="实验楼,IT培训,IT教育,编程,在线编程,Linux,Linux教程,Linux操作系统,Python,Python教程,Python基础教程,Java,Java编程,C语言,大数据,Node.js,Hadoop,PHP,Docker,Git,R,SQL,MongoDB,Redis,Swift,Spark,在线实验,IT在线教育,编程入门,项目训练,项目实践,webIDE,软件开发" name="keywords">
+        
+        <meta content="实验楼，琛石科技" name="author">
+
+        <link rel="shortcut icon" type="image/x-icon" href="https://static.shiyanlou.com/favicon.ico">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/bootstrap-switch/3.3.2/css/bootstrap-switch.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/bootstrap-tour/0.11.0/css/bootstrap-tour.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/bootstrap-table/1.11.0/bootstrap-table.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/katex/0.7.1/katex.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/videojs/6.2.8/video-js.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/highlight.js/9.9.0/css/monokai-sublime.min.css">
+        <link rel="stylesheet" href="https://static.shiyanlou.com/static/calendar-heatmap/calendar-heatmap.css" />
+
+        <link rel="stylesheet" href="/app/dist/css/styles.css?=20180404190544">
+
+        <style>
+            @font-face {
+                font-family: "lantingxihei";
+        src: url("https://static.shiyanlou.com/fonts/FZLTCXHJW.TTF");
+        }
+
+        /* modal 模态框*/
+        #invite-user .modal-body {
+        overflow: hidden;
+        }
+        #invite-user .modal-body .form-label {
+        margin-bottom: 16px;
+        font-size:14px;
+        }
+        #invite-user .modal-body .form-invite {
+        width: 80%;
+        padding: 6px 12px;
+        background-color: #eeeeee;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        float: left;
+        margin-right: 10px;
+        }
+        #invite-user .modal-body .msg-modal-style {
+        background-color: #7dd383;
+        margin-top: 10px;
+        padding: 6px 0;
+        text-align: center;
+        width: 100%;
+        }
+        #invite-user .modal-body .modal-flash {
+        position: absolute;
+        top: 53px;
+        right: 74px;
+        z-index: 999;
+        }
+        /* end modal */
+
+        .en-footer {
+        padding: 30px;
+        text-align: center;
+        font-size: 14px;
+        }
+        </style>
+        
+<style type="text/css">
+.error-msg {
+    margin:10px 0 0;
+    font-size: 14px;
+}
+.error-msg .alert {
+    padding: 5px 10px;
+    margin: 0;
+}
+</style>
+
+
+        
+        
+    </head>
+
+    <body>
+        <div style="height:0;width:0;visibility:hidden">
+            <img src="https://static.shiyanlou.com/img/weixin_logo.png" alt="">
+        </div>
+        
+        
+        
+        
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top home-header">
+    <div class="container" style="position: relative;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">实验楼</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="https://static.shiyanlou.com/img/shiyanlou_logo.svg">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="header-navbar-collapse">
+            <ul class="nav navbar-nav">
+                 <li class="">
+                    <a href="/courses/">课程</a>
+                </li>
+                <li class="">
+                    <a href="/paths/">路径</a>
+                </li>
+                <li class="">
+                    <a href="/contests/">比赛</a>
+                </li>
+                <li class="">
+                    <a href="/questions/">讨论</a>
+                </li>
+                 <li class="">
+                    <a href="/bootcamp/">训练营</a>
+                </li>
+                <li class="">
+                    <a href="/vip">会员</a>
+                </li>
+                <li class="">
+                    <a href="/louplus/">楼+</a>
+                </li>
+
+                
+                
+            </ul>
+
+            
+
+            
+            <ul class="nav navbar-nav navbar-right header-sign">
+                <li><a class="sign-in" data-sign="signin" href="#sign-modal" data-toggle="modal">登录</a></li>
+                <li><a class="sign-up" data-sign="signup" href="#sign-modal" data-toggle="modal">注册</a></li>
+            </ul>
+            
+            <div id="search-box"
+                data-url="/search"
+                ></div>
+            
+        </div>
+    </div>
+</nav>
+
+
+        
+        
+
+        
+    
+    
+<div class="container layout-margin-top layout-noside">
+    
+    
+    
+    
+    <div class="row">
+        <div class="col-md-12 layout-body">
+            
+	<div class="login-container">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="login-title">登录</div>
+        </div>
+		<div class="col-md-4 col-md-offset-4">
+			<div class="login-body">
+				
+    <form class="" method="POST" action="/login"
+	
+	 >
+	<input id="next" name="next" type="hidden" value="/courses/1030/labs/4686/document">
+<input id="csrf_token" name="csrf_token" type="hidden" value="ImYzZjVmYjM5MzU1MjcxYzI2ZWNiOGZlYzMxOTUyNzBhYmZiMDBkZGIi.DafXxg.4DvTkFRvwUB63F8dX2hKv2pcvWk">
+		
+		
+		
+			
+		
+			
+                
+					
+<div class="control-group">
+	<div class="form-group login">
+        <div class="input-group">
+            
+                <div class="input-group-addon">
+                    
+                    <i class="fa fa-envelope">
+                    
+                    </i>
+                </div>
+                <input class="form-control" id="login" name="login" placeholder="请输入您的登录邮箱" type="email" value="">
+            
+        </div>
+    </div>
+	
+</div>
+
+				
+			
+		
+			
+                
+					
+<div class="control-group">
+	<div class="form-group password">
+        <div class="input-group">
+            
+                <div class="input-group-addon">
+                    
+                    <i class="fa fa-lock">
+                    
+                    </i>
+                </div>
+                <input class="form-control" id="password" name="password" placeholder="请输入密码" type="password" value="">
+            
+        </div>
+    </div>
+	
+</div>
+
+				
+			
+		
+			
+                
+					
+<div class="control-group">
+    <div class=" form-group controls">
+        <label for="remember" class="checkbox inline">
+        </label>
+        <input id="remember" name="remember" type="checkbox" value="y">下次自动登录
+        <span class="help-inline"></span>
+        
+    </div>
+</div>
+
+                
+			
+		
+			
+                
+					
+<div class="submit">
+	<input class="btn btn-primary" id="submit" name="submit" type="submit" value="进入实验楼">
+</div>
+
+                
+			
+		
+			
+		
+        <div class="form-group error-msg" style="display: none;">
+            <div class="alert alert-danger" role="alert"></div>
+        </div>
+</form>
+
+				<div class="login-footer">
+					<span>
+                        <a href="/reset_password">忘记密码？</a>
+                        <a href="/register">注册新账号</a>
+					</span>
+				</div>
+                <div class="message">登录之后，进入实验环境</div>
+			</div>
+			<div class="login-widget">
+                <span>快速登录：</span>
+                <a href="/auth/qq?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-qq"></i></a>
+                <a href="/auth/weibo?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-weibo"></i></a>
+                <a href="/auth/weixin?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-weixin"></i></a>
+                <a href="/auth/github?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-github"></i></a>
+                <a href="/auth/renren?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-renren"></i></a>
+                <div class="tuijian">推荐使用 Chrome 或 Firefox 浏览器</div>
+            </div>
+		</div>
+	</div>
+
+        </div>
+    </div>
+</div>
+
+
+        
+        
+
+        
+        
+
+        <div class="modal fade" id="invite-user" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">邀请好友，双方都可获赠实验豆！</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <p><h4><a href="#sign-modal" data-toggle="modal" data-sign="signin">登录</a>后邀请好友注册，您和好友将分别获赠3个实验豆！</h4></p>
+                        
+                        <div id="msg-modal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="flash-message" tabindex="-1" role="dialog">
+            <div class="modal-dialog" rolw="document">
+            </div>
+        </div>
+        <div class="modal fade" id="modal-message" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">注意</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary confirm" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="new-loading new-loading-modal" id="new-loading-modal">
+            <div class="loading-wrapper">
+                <p class="loading-icon-lion">
+                    <img src="https://static.shiyanlou.com/img/console/icon_loading.png" alt="">
+                </p>
+                <div class="progress">
+                    <div class="progress-bar load-progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
+                        <span class="sr-only">0% Complete</span>
+                    </div>
+                </div>
+              <p class="loading-txt">
+                    加载中，精彩就在后面...
+              </p>
+              <p class="progress-reload">
+                  <a href="javascript:;" type="button" class="btn-progress-reload" title="">卡住了？点击重试</a>
+              </p>
+            </div>
+        </div>
+
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+
+        <div class="modal fade" id="sign-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#signin-form" aria-controls="signin-form" role="tab" data-toggle="tab">登录</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#signup-form" aria-controls="signup-form" role="tab" data-toggle="tab">注册</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="signin-form">
+                        <form action="/login" method="post">
+                            <input name="_csrf_token" type=hidden value="ImYzZjVmYjM5MzU1MjcxYzI2ZWNiOGZlYzMxOTUyNzBhYmZiMDBkZGIi.DafXxg.4DvTkFRvwUB63F8dX2hKv2pcvWk">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-envelope" style="margin:0;"></i>
+                                    </div>
+                                    <input type="email" name="login" class="form-control" placeholder="请输入邮箱">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-lock" style="margin:0;"></i>
+                                    </div>
+                                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                                </div>
+                            </div>
+                            <div class="form-group remember-login">
+                                <input name="remember" type="checkbox" value="y"> 下次自动登录
+                                <a class="pull-right" href="/reset_password">忘记密码？</a>
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-primary" name="submit" type="submit" value="进入实验楼">
+                            </div>
+                            <div class="form-group widget-signin">
+                                <span>快速登录</span>
+                                <a href="/auth/qq?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-qq"></i></a>
+                                <a href="/auth/weibo?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-weibo"></i></a>
+                                <a href="/auth/weixin?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-weixin"></i></a>
+                                <a href="/auth/github?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-github"></i></a>
+                                <a href="/auth/renren?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-renren"></i></a>
+                            </div>
+                            <div class="form-group error-msg">
+                                <div class="alert alert-danger" role="alert"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="signup-form">
+                        <form action="/register" method="post">
+                            <input name="_csrf_token" type=hidden value="ImYzZjVmYjM5MzU1MjcxYzI2ZWNiOGZlYzMxOTUyNzBhYmZiMDBkZGIi.DafXxg.4DvTkFRvwUB63F8dX2hKv2pcvWk">
+                            <div class="form-group">
+                                <div id="signup-email"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-lock" style="margin:0;"></i>
+                                    </div>
+                                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                                </div>
+                            </div>
+                            <div class="form-group nc-container" id="register-users"></div>
+                            <div class="form-group">
+                                <input class="btn btn-primary" name="submit" type="submit" value="注册">
+                            </div>
+                            <div class="form-group agree-privacy">
+                                注册表示您已经同意我们的<a href="/privacy" target="_blank">隐私条款</a>
+                            </div>
+                            <div class="form-group widget-signup">
+                                <span>快速注册</span>
+                                <a href="/auth/qq?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-qq"></i></a>
+                                <a href="/auth/weibo?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-weibo"></i></a>
+                                <a href="/auth/weixin?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-weixin"></i></a>
+                                <a href="/auth/github?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-github"></i></a>
+                                <a href="/auth/renren?next=%2Fcourses%2F1030%2Flabs%2F4686%2Fdocument"><i class="fa fa-renren"></i></a>
+                            </div>
+                            <div class="form-group error-msg">
+                                <div class="alert alert-danger" role="alert"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="base-data"
+            
+            
+            data-flash="false"
+            
+            
+            
+            data-is-login=false
+            
+            data-is-jwt=true
+            data-socket-url="wss://comet.shiyanlou.com"
+            data-msg-user=""
+            data-msg-system=""
+            ></div>
+
+        <!-- 不带 CSS 的库 -->
+        <script src="https://static.shiyanlou.com/static/babel-polyfill/6.20.0/polyfill.min.js"></script>
+        <script src="/app/dist/js/manifest.js?=20180404190544"></script>
+        <script src="/app/dist/js/vendor.js?=20180404190544"></script>
+
+        <script src="https://static.shiyanlou.com/static/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/jquery.form/3.51/jquery.form.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/jquery.menu/jquery.menu-aim.js"></script>
+        <script src="https://static.shiyanlou.com/static/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/html2canvas/0.4.1/html2canvas.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/jspdf/1.3.2/jspdf.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/clipboard.js/1.7.1/clipboard.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/zeroclipboard/2.3.0/ZeroClipboard.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/aliyun/aliyun-oss-sdk-4.3.0.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/qiniu/qiniu.js"></script>
+        <script src="https://static.shiyanlou.com/static/plupload/2.1.9/js/plupload.full.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/echarts/v3.3.2/echarts.min.js"></script>
+        <!-- 不带 CSS 的库 end -->
+
+        <!-- 带有 CSS 的库 -->
+        <script src="https://static.shiyanlou.com/static/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/bootstrap-tour/0.11.0/js/bootstrap-tour.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/bootstrap-table/1.11.0/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+
+        <script src="https://static.shiyanlou.com/static/ace/1.2.5/ace.js"></script>
+        <script src="https://static.shiyanlou.com/static/videojs/6.2.8/video.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/videojs/6.2.8/videojs-flash.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/katex/0.7.1/katex.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/highlight.js/9.9.0/js/highlight.min.js"></script>
+        <!-- 带有 CSS 的库 end -->
+
+        <script src="https://static.shiyanlou.com/static/d3/d3.min.js"></script>
+        <script src="https://static.shiyanlou.com/static/moment/moment.min.js" charset="utf-8"></script>
+        <script src="https://static.shiyanlou.com/static/calendar-heatmap/calendar-heatmap.js"></script>
+
+        <script src="https://static.shiyanlou.com/static/ravenjs/3.17.0/raven.min.js" crossorigin="anonymous"></script>
+        <script>
+            Raven.config('https://7748db6c507a45cca1ba53ccb7dc0d51@sentry.shiyanlou.com/5', {
+                whitelistUrls: [/console/, /running/]
+            }).install();
+        </script>
+
+        
+            <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/sd/ncpc/nc.js?t=2018040523"></script>
+        
+
+        
+<script src="/app/dist/js/base/index.js?=20180404190544"></script>
+<script>
+// 判断浏览器是否支持canvas
+var supportCanvas = (function() {
+    try {
+        document.createElement('canvas').getContext('2d');
+        return true;
+    } catch(e) {
+        return false;
+    }
+}());
+
+if (!supportCanvas) {
+    alert("检测到您的浏览器不支持Canvas或是IE9版本以下的浏览器，请使用Chrome、Firefox或IE 9以上版本的浏览器登录实验楼。");
+};
+
+if (/startandgetconsole/g.test(window.location.href)) {
+    $('.login-container .message').show();
+};
+$(function() {
+    $('#CapCodeImg').on('click', function () {
+        $(this).attr("src", "/captcha.gif?"+(new Date().getTime()));
+    });
+});
+
+function errMsg(msg) {
+    this.$errMsg = $('.error-msg');
+    this.errTimer = [];
+    this.errTimer.map(t => {
+        clearTimeout(t);
+        this.errTimer.pop();
+    });
+    this.$errMsg.hide();
+    this.$errMsg.find('.alert').text('');
+    this.$errMsg.find('.alert').text(msg);
+    this.$errMsg.show();
+
+    let timer = setTimeout(() => {
+        this.$errMsg.hide();
+        this.$errMsg.find('.alert').text('');
+        this.errTimer.pop();
+    }, 5000);
+
+    this.errTimer.push(timer);
+}
+
+$('.login-body form').on('submit', function() {
+    var $remember = $('[name="remember"]', this);
+    var data= {
+        login: $('[name="login"]', this).val(),
+        password: $('[name="password"]', this).val(),
+        captcha_v: $('[name="captcha_v"]').val(),
+        next: $('[name="next"]').val(),
+        remember: $remember.is(':checked') ? $remember.val() : '',
+    };
+
+  if (!data.login) {
+        errMsg('请输入邮箱');
+        return false;
+    }
+    if (!data.password) {
+        errMsg('请输入密码');
+        return false;
+    }
+
+    $.post('/login', data)
+    .done(function(data) {
+        if (data.ok) {
+            if (data.next) {
+                window.location.href = data.next;
+            } else {
+                window.location.href = '/courses/';
+            }
+        } else {
+            errMsg(data.message);
+        }
+    });
+
+    return false;
+});
+
+
+</script>
+
+
+        
+        <div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 clearfix footer-col">
+                <img src="https://static.shiyanlou.com/img/logo-white.png">
+                <div class="footer-slogan">动手做实验，轻松学IT</div>
+                <div class="col-xs-2">
+                    <div class="social-item footer-weixin-item">
+                        <i class="fa fa-weixin"></i>
+                        <div class="footer-weixin">
+                            <img src="https://static.shiyanlou.com/img/footer-weixin.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="social-item footer-weibo-item">
+                        <a href="http://weibo.com/shiyanlou2013" target="_blank">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 footer-col">
+                <div class="col-title">公司</div>
+                <a href="/aboutus" target="_blank">关于我们</a><br>
+                <a href="/contact" target="_blank">联系我们</a><br>
+                <a href="http://www.simplecloud.cn/jobs.html" target="_blank">加入我们</a><br>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 footer-col">
+                <div class="col-title">合作</div>
+                <a href="/contribute" target="_blank">我要投稿</a><br>
+                <a href="/labs" target="_blank">教师合作</a><br>
+                <a href="/edu/" target="_blank">高校合作</a><br>
+                <a href="/friends" target="_blank">友情链接</a><br>
+                <a href="/developer" target="_blank">开发者</a><br>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 footer-col">
+                <div class="col-title">服务</div>
+                <a href="/saas" target="_blank">企业版</a><br>
+                <a href="/bootcamp/" target="_blank">实战训练营</a><br>
+                <a href="/vip" target="_blank">会员服务</a><br>
+                <a href="/courses/reports" target="_blank">实验报告</a><br>
+                <a href="/questions/?tag=%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank">常见问题</a><br>
+                <a href="/privacy" target="_blank">隐私条款</a>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 footer-col">
+                <div class="col-title">学习路径</div>
+                <a href="/paths/python" target="_blank">Python学习路径</a><br>
+                <a href="/paths/linuxdev" target="_blank">Linux学习路径</a><br>
+                <a href="/paths/bigdata" target="_blank">大数据学习路径</a><br>
+                <a href="/paths/java" target="_blank">Java学习路径</a><br>
+                <a href="/paths/php" target="_blank">PHP学习路径</a><br>
+                <a href="/paths/", target="_blank">全部</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center copyright">
+        <span>Copyright @2013-2018 实验楼在线教育</span>
+        <span class="ver-line"> | </span>
+        <a href="http://www.miibeian.gov.cn/" target="_blank">蜀ICP备13019762号</a>
+    </div>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-89338452-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</div>
+
+        
+    </body>
+</html>
