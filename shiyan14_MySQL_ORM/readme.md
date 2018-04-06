@@ -470,4 +470,5 @@ In [<span class="hljs-number"><span class="hljs-number">93</span></span>]: Base.
 
 
 https://labfile.oss.aliyuncs.com/courses/923/week2_mp4/2-2-1-mac.mp4
+https://labfile.oss.aliyuncs.com/courses/923/week2_mp4/2-2-2-mac.mp4
 https://labfile.oss.aliyuncs.com/courses/923/week2_mp4/2-2-3-mac.mp4
