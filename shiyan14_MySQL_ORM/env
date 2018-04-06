@@ -1,0 +1,5 @@
+env
+env/bin/activate
+deactivate
+sudo pip install virtualenv
+virtualenv -p //usr.bin/python3.5 env
