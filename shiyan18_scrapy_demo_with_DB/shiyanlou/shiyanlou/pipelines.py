@@ -35,14 +35,19 @@ class ShiyanlouPipeline(object):
     def process_item(self, item, spider):
         if isinstance(item, CourseItem):
             self._process_course_item(item)
-        else:
+        elif isinstance(item, UserItem):
             self._process_user_item(item)
+        elif isinstance(item, CourseFollowItem):
+            self._process_course_follow_item(item)
+        else:
+            pass
         return item
 
     def _process_course_item(self, item):
         item['students'] = int(item['students'])
         self.session.add(Course(**item))
-
+    def _process_course_follow_item(self, item):
+#########################        self.session.add(
     def _process_user_item(self, item):
         item['level'] = int(item['level'][1:])
         item['join_date'] = datetime.strptime(item['join_date'].split()[0], '%Y-%m-%d').date()
