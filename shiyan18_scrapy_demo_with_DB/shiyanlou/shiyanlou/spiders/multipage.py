@@ -1,11 +1,24 @@
 # -*- coding: utf-8 -*-
 import scrapy
-
+from shiyanlou.items import MultipageCourseItem
 
 class MultipageSpider(scrapy.Spider):
     name = 'multipage'
-    allowed_domains = ['www.shiyanlou.com/multipage']
-    start_urls = ['http://www.shiyanlou.com/multipage/']
+    start_urls = ['https://www.shiyanlou.com/courses/']
 
     def parse(self, response):
-        pass
+        for course in response.css('a.course-box'):
+            item = MultipageCourseItem()
+            item['name'] = course.xpath('.//div[@class="course-name"]/text()').extract_first()
+            item['image'] = course.xpath('.//img/@src').extract_first()
+            course_url = response.urljoin(course.xpath('@href').extract_first())
+            request = scrapy.Request(course_url, callback=self.parse_author)
+            request.meta['item'] = item
+            yield request
+
+    def parse_author(self, response):
+        item = response.meta['item']
+        item['author'] = response.xpath('//dib[@class="mooc-info"]/div[@class="name"]/strong/text()').extract_first()
+        yield item
+
+
