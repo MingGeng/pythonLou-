@@ -1,0 +1,28 @@
+<!-- <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    {% for course in courses %}
+    <p>{{ course.name }} - {{ course.author.username }}</p>
+    {% endfor %}
+</body>
+<script src="/static/main.js"></script>
+</html> -->
+
+
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    {% for course in courses %}
+        <h1>{{ course.name }} - {{ course.author.username }}</h1>
+    {% endfor %}
+	<h1>id - name - register_date</h1>
+    {% for user in users %}
+        <h1>{{ user.id }} - {{ user.username }} -{{ user.created_at }} </h1>
+    {% endfor %}
+{% endblock %}
