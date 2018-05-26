@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%block title %}User{% endblock %}
+
+{%block body %}
+
+<h1>{{ user.id }} - {{ user.username }}</h1>
+
+{% for course in user.publish_courses %}
+<h2>{{ course.name }} - {{ course.author.username }}</h2>
+{% endfor %}
+
+{% endblock %}
