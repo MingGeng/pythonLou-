@@ -9,13 +9,13 @@
 <form action="{{ url_for('front.login') }}" method="POST">
 {{ form.csrf_token }}
 <div class="form-group">
-    {{ form.login_password.label }}
-    {{ form.login_password(class='form-control') }}
+    {{ form.password.label }}
+    {{ form.password(class='form-control') }}
 </div>
 <div class="checkbox"><label for="">
-    {{ form.login_remember_me() }}
-    {{ form.login_remember_me.babel.text }}
+    {{ form.remember_me() }}
+    {{ form.remember_me.label.text }}
 </label></div>
-    {{ form.login_submit(class="btn btn-primary") }}
+    {{ form.submit(class="btn btn-primary") }}
 </form>
 {% endblock %}
