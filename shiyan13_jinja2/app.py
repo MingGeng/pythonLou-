@@ -15,7 +15,7 @@ app.add_template_filter(hidden_email)
 def index():
     teacher = {
         'name': 'Aiden',
-        'email': 'luojin@simplecloud.cnaaaa'
+        'email': 'luojin@simplecloud.cn'
     }
     course = {
         'name': 'Python Basic',
