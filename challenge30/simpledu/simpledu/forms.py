@@ -1,10 +1,10 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, ValidationError
-from wtforms.validators import Length, Email, EqualTo, Required
+from wtforms.validators import Length, Email, EqualTo, Required, Regexp
 from simpledu.models import db, User
 
 class RegisterForm(FlaskForm):
-    username = StringField('User Name:', validators=[Required(), Length(3, 24)])
+    username = StringField('Username', validators=[Required(), Length(3, 24), Regexp('^[A-Za-z0-9]*$', 0, 'Username must have only letters,  numbers!')])
     email = StringField('Email:', validators=[Required(), Email(message='Please input currect email address!')])
     password = PasswordField('Password:', validators=[Required(), Length(6, 24, message='Password Length need to between 6 to 24!')])
     repeat_password = PasswordField('Repeat Password:', validators=[Required(), EqualTo('password')])
@@ -35,9 +35,8 @@ class LoginForm(FlaskForm):
     # def validate_email(self, field):
     #     if field.data and not User.query.filter_by(email=field.data).first():
     #         raise ValidationError('Email unregistered!')
-    
     def validate_username(self, field):
-        if not User.query.filter_by(username=field.data).first():
+        if field.data and not User.query.filter_by(username=field.data).first():
             raise ValidationError('User unregistered!')
 
     def validate_password(self, field):
