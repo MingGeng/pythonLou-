@@ -1,5 +1,5 @@
 class BaseConfig(object):
-    SECRET_KEY = 'makesure to set a very secret key'
+    SECRET_KEY = 'very secret key'
     INDEX_PER_PAGE = 9
     ADMIN_PER_PAGE = 15
 
@@ -21,4 +21,3 @@ configs = {
     'production': ProductionConfig,
     'testing': TestingConfig
 }
-
