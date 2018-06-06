@@ -11,8 +11,7 @@ db = SQLAlchemy()
 class Base(db.Model):
     __abstract__ = True
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    updated_at = db.Column(
-        db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
 class User(Base, UserMixin):
@@ -23,8 +22,7 @@ class User(Base, UserMixin):
     ROLE_ADMIN = 30
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(32), unique=True,
-                         index=True, nullable=False)
+    username = db.Column(db.String(32), unique=True, index=True, nullable=False)
     email = db.Column(db.String(64), unique=True, index=True, nullable=False)
     _password = db.Column('password', db.String(256), nullable=False)
     role = db.Column(db.SmallInteger, default=ROLE_USER)
@@ -92,6 +90,10 @@ class Chapter(Base):
     course_id = db.Column(db.Integer, db.ForeignKey(
         'course.id', ondelete='CASCADE'))
     course = db.relationship('Course', uselist=False)
+
+    @property
+    def url(self):
+        return url_for('course.chapter', course_id=self.course_id, chapter_id=self.id)
 
     def __repr__(self):
         return '<Chapter:{}>'.format(self.name)

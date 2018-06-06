@@ -1,8 +1,8 @@
-"""upgrade for shiyan28
+"""update shiynalou test lab5
 
-Revision ID: e95250d711b8
+Revision ID: 39e26f211fed
 Revises: 
-Create Date: 2018-06-03 17:59:36.856193
+Create Date: 2018-06-06 17:37:12.269570
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e95250d711b8'
+revision = '39e26f211fed'
 down_revision = None
 branch_labels = None
 depends_on = None
