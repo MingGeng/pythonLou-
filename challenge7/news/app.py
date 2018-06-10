@@ -53,19 +53,16 @@ def file(file_id):
     for file in File.query.all():
         fileid_list.append(file.id)
 
-    for fileid in fileid_list:
-        if file_id == file_id:
-            file = File.query.filter_by(id=file_id).first()
-            file_details['file_id'] = file.id
-            file_details['created_time'] = file.created_time
-            file_details['content'] = file.content
-            file_details['title'] = file.title
-        else:
+    target_file = File.query.filter_by(id=file_id).first()
+    if target_file:
+        file_details['file_id'] = target_file.id
+        file_details['created_time'] = target_file.created_time
+        file_details['content'] = target_file.content
+        file_details['title'] = target_file.title
+    else:
             abort(404)
 
     return render_template('file.html', file_details=file_details)
-    
-
 
 @app.errorhandler(404)
 def not_found(error):
