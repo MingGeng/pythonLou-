@@ -43,5 +43,14 @@ def register():
     return render_template('register.html', form=form)
 
 
+@front.route('/live', methods=['GET', 'POST'])
+def live():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        form.create_user()
+        flash('Register Success, please login!', 'success')
+        return redirect(url_for('.login'))
+    return render_template('live.html', form=form)
+
 
 
